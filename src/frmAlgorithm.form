@@ -156,17 +156,25 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Factorial"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnFactorialActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="btnPrime">
           <Properties>
             <Property name="text" type="java.lang.String" value="Prime"/>
-            <Property name="actionCommand" type="java.lang.String" value="Prime"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnPrimeActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="btnFibonacci">
           <Properties>
             <Property name="text" type="java.lang.String" value="Fibonacci"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnFibonacciActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="lblFactorial">
           <Properties>

@@ -1,7 +1,7 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * Michael Botros
+ * Dec 4th 2019
+ * This GUI based program uses an algorithm for prime, fibonacci and factorial numbers
  */
 
 /**
@@ -9,7 +9,7 @@
  * @author mibot3117
  */
 public class frmAlgorithm extends javax.swing.JFrame {
-
+public static int numberInput = 0;
     /**
      * Creates new form frmAlgorithm
      */
@@ -64,11 +64,25 @@ public class frmAlgorithm extends javax.swing.JFrame {
         });
 
         btnFactorial.setText("Factorial");
+        btnFactorial.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnFactorialActionPerformed(evt);
+            }
+        });
 
         btnPrime.setText("Prime");
-        btnPrime.setActionCommand("Prime");
+        btnPrime.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPrimeActionPerformed(evt);
+            }
+        });
 
         btnFibonacci.setText("Fibonacci");
+        btnFibonacci.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnFibonacciActionPerformed(evt);
+            }
+        });
 
         lblFactorial.setText("...");
 
@@ -165,6 +179,29 @@ public class frmAlgorithm extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtPrimeActionPerformed
 
+    private void btnFactorialActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFactorialActionPerformed
+        numberInput = Integer.parseInt(txtFactorial.getText());
+        lblFactorial.setText(factorial(numberInput) + ".");
+    }//GEN-LAST:event_btnFactorialActionPerformed
+
+    private void btnPrimeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPrimeActionPerformed
+        numberInput = Integer.parseInt(txtPrime.getText());
+        
+        
+        if(prime(numberInput)==0)  { 
+            lblPrime.setText(numberInput + ":prime"); 
+        } else if(prime(numberInput)==1)  { 
+            lblPrime.setText(numberInput + ":not prime"); 
+        } 
+        
+        
+    }//GEN-LAST:event_btnPrimeActionPerformed
+
+    private void btnFibonacciActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFibonacciActionPerformed
+        numberInput = Integer.parseInt(txtFibonacci.getText());
+        lblFibonacci.setText(fibonacci(numberInput) +".");
+    }//GEN-LAST:event_btnFibonacciActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -198,8 +235,44 @@ public class frmAlgorithm extends javax.swing.JFrame {
                 new frmAlgorithm().setVisible(true);
             }
         });
+        
+    //public static 
     }
-
+    
+    public static int factorial(int n1){
+        int number = 1;
+        for (int i=1; i <n1+1; i++){
+            number = number*i;
+        }
+        return(number);
+    }
+    
+    public static int prime(int n1){
+        int i,m=0,flag=0;         
+        m=n1/2;      
+        if(n1==0||n1==1){  
+            flag = 0;     
+        }else{  
+            for(i=2;i<=m;i++){      
+                if(n1%i==0){            
+                flag=1;      
+                break;      
+            }      
+        }      
+    }
+            return(flag);
+    }
+    public static int fibonacci(int number){
+        int n1 = 0;
+        int n2 = 1;
+        int sum = 0;
+        for (int i = 0; i<=number; i++){
+            sum = n1 + n2;
+            n2 = n1;
+            n1 = sum;
+        }
+        return(sum);
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnFactorial;
     private javax.swing.JButton btnFibonacci;
